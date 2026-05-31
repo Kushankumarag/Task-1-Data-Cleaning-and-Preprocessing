@@ -1,0 +1,88 @@
+DATA CLEANING AND PREPROCESSING SUMMARY
+========================================
+
+Project Title : Task 1 - Data Cleaning and Preprocessing
+Internship    : Data Analyst Internship
+Dataset       : Netflix Movies and TV Shows
+Date          : May 2026
+
+========================================
+OBJECTIVE
+========================================
+Clean and prepare the raw Netflix dataset by handling missing values,
+checking for duplicates, standardizing column names, converting date
+formats, and verifying data types.
+
+========================================
+STEPS PERFORMED
+========================================
+
+1. LOAD DATASET
+   - Loaded netflix_titles.csv using pandas.read_csv()
+   - Original shape: 8807 rows x 12 columns
+
+2. INSPECT MISSING VALUES
+   - Identified null values in: director, cast, country, rating, duration
+
+3. STANDARDIZE COLUMN NAMES
+   - Converted all column names to lowercase
+   - Replaced spaces with underscores
+   - Removed special characters
+
+4. HANDLE MISSING VALUES
+   - director  : filled with 'Unknown'
+   - cast      : filled with 'Unknown'
+   - country   : filled with 'Unknown'
+   - rating    : filled with 'Not Rated'
+   - duration  : filled with 'Unknown'
+
+5. CONVERT DATE COLUMN
+   - Converted 'date_added' column to pandas datetime format
+   - Used pd.to_datetime() with errors='coerce'
+
+6. REMOVE DUPLICATES
+   - Checked for duplicate rows using df.duplicated()
+   - Duplicate rows found    : 0
+   - Duplicate rows removed  : 0
+
+7. VERIFY DATA TYPES
+   - Confirmed all columns have appropriate data types
+   - 'date_added' is now datetime64[ns]
+   - Remaining columns are object or int64
+
+8. EXPORT CLEANED DATASET
+   - Saved cleaned data to: dataset/cleaned_netflix_titles.csv
+
+========================================
+RESULTS SUMMARY
+========================================
+
+  Metric                        Value
+  ----------------------------  -------
+  Original rows                 8807
+  Final rows                    8807
+  Duplicate rows removed        0
+  Columns with missing values   5
+  Missing values handled        Yes
+  Date column converted         Yes
+  Column names standardized     Yes
+
+========================================
+CONCLUSION
+========================================
+The Netflix Movies and TV Shows dataset was successfully cleaned and
+preprocessed. All missing values were imputed with sensible defaults,
+column names were standardized for consistency, the date_added column
+was converted to datetime format, and no duplicate records were found.
+The cleaned dataset is ready for exploratory data analysis (EDA) or
+visualization tasks.
+
+========================================
+FILES
+========================================
+  - dataset/netflix_titles.csv         (raw dataset)
+  - dataset/cleaned_netflix_titles.csv (cleaned dataset)
+  - code/data_cleaning.py              (Python script)
+  - notebook/data_cleaning.ipynb       (Jupyter notebook)
+  - report/data_cleaning_summary.txt   (this report)
+========================================
